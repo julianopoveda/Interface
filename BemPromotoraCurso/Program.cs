@@ -11,14 +11,14 @@ namespace BemPromotoraCurso
         static void Main(string[] args)
         {
             List<Proposta> propostas = new List<Proposta>{
-                new Novo(123.50M),
-                new Portabilidade(3, 325.72)
+                new Novo(12M),
+                new Portabilidade(3, 325.72M)
             };
 
-            IProposta proposta = propostas[0];
-            Console.WriteLine($"Valor Total = {proposta.ObterValorCorrigido()}");
-            proposta.AtualizarValorParcela(32);
-            Console.WriteLine($"Após atualizar o valor da parcela para 32 o novo total é = {proposta.CorrigirValor()}");
+            IProposta propostaNovo = (IProposta)propostas[0];
+            Console.WriteLine($"Valor Total = {propostaNovo.ObterValorCorrigido()}");
+            propostaNovo.AtualizarValorParcela(6M);
+            Console.WriteLine($"Após atualizar o valor da parcela para 6 o novo total é = {propostaNovo.CorrigirValor()}");
 
             foreach (Proposta proposta in propostas)
             {
@@ -26,10 +26,11 @@ namespace BemPromotoraCurso
                 Console.WriteLine($"Meu valor corrigido é: {((IProposta)proposta).CorrigirValor()}");
             }
 
-            IRelatorio relatorio = proposta[1];
-            Console.WriteLine(relatorio.GerarResumo());
-
-            Console.WriteLine(proposta.ToString());
+            IRelatorio relatorio = (IRelatorio)propostas[1];
+            Resumo resumo= relatorio.GerarResumo();
+            Console.WriteLine(string.Format("Operação de {0} é viável? {1}", resumo.TipoOperacao, resumo.Viavel));
+            
+            Console.ReadLine();
         }
     }
 }

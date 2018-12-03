@@ -4,9 +4,7 @@ using Enums;
 namespace BemPromotoraCurso.Model.Entities
 {
     public class Novo : Proposta, IProposta
-    {
-        public decimal ValorParcela { get; set; }
-
+    {        
         public Novo(decimal valorParcela)
         {
             ValorParcela = valorParcela;
@@ -22,7 +20,7 @@ namespace BemPromotoraCurso.Model.Entities
 
         public decimal CorrigirValor()
         {
-            decimal fatorial = 1;
+            decimal fatorial = 1M;
             decimal valor = ValorParcela;
 
             while (valor > 0)
@@ -30,6 +28,8 @@ namespace BemPromotoraCurso.Model.Entities
                 fatorial = fatorial * valor;
                 valor--;
             }
+            
+            return fatorial;
         }
 
         public decimal ObterValorCorrigido()

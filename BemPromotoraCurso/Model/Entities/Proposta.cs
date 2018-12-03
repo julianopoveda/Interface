@@ -8,14 +8,14 @@ namespace Entities
     {
         TipoOperacao TipoOperacao;
         public int Situacao;
-        protected double ValorParcela;
+        protected decimal ValorParcela;
         public decimal ValorTotal { get; set; }
 
         public Proposta() { }
 
-        public Proposta(TipoOperacao tipoOperacao, int situacao, double valorParcela, decimal valorTotal = 0)
+        public Proposta(TipoOperacao tipoOperacao, int situacao, decimal valorParcela, decimal valorTotal = 0)
         {
-            tipoOperacao = tipoOperacao;
+            TipoOperacao = tipoOperacao;
             Situacao = situacao;
             ValorParcela = valorParcela;
             ValorTotal = valorTotal;
