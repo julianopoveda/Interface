@@ -1,19 +1,34 @@
 using System;
+using BemPromotoraCurso.Model.Entities;
 using Enums;
-namespace Entities{
-    abstract class Proposta : IProposta
-    {
-        TipoOperacao tipoOperacao;
-        public int situacao;
-        public double valorParcela;
 
-        public Proposta(TipoOperacao tipoOperacao,int situacao,double valorParcela){
-            this.tipoOperacao=tipoOperacao;
-            this.situacao=situacao;
-            this.valorParcela=valorParcela;
+namespace Entities
+{
+    public class Proposta
+    {
+        TipoOperacao TipoOperacao;
+        public int Situacao;
+        protected double ValorParcela;
+        public decimal ValorTotal { get; set; }
+
+        public Proposta() { }
+
+        public Proposta(TipoOperacao tipoOperacao, int situacao, double valorParcela, decimal valorTotal = 0)
+        {
+            tipoOperacao = tipoOperacao;
+            Situacao = situacao;
+            ValorParcela = valorParcela;
+            ValorTotal = valorTotal;
         }
 
-        public abstract double buscaValorParcela();
-        public abstract int buscaSituacao();
+        public string QualOTipoOperacao()
+        {
+            return TipoOperacao.ToString();
+        }
+
+        protected void DefinirTipoOperacao(TipoOperacao tipoOperacao)
+        {
+            TipoOperacao = tipoOperacao;
+        }
     }
 }

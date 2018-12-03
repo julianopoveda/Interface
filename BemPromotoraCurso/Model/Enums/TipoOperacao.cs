@@ -1,6 +1,6 @@
 using System;
 namespace Enums{
-    enum TipoOperacao{
-        Portabilidade, Refinanciamento
+    public enum TipoOperacao{
+        Portabilidade, Refinanciamento, Novo
     }
 }
