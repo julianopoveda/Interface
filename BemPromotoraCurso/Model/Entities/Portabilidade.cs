@@ -41,7 +41,9 @@ namespace Entities
         public void AtualizarValorParcela(decimal novoValor)
         {
             if (novoValor > 0)
+            {
                 ValorParcela = novoValor;
+            }
         }
 
         public decimal ObterValorCorrigido()
